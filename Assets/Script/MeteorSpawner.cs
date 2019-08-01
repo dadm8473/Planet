@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class MeteorSpawner : MonoBehaviour
 {
-    public GameObject cube;
+    public GameObject pivot;
+    public GameObject[] spawnerList = new GameObject[50];
+
+    int y_count = 0;
+    public float me_rotate = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int x = -180; x <= 180; ++x)
-            for(int y = -180; y <= 180; ++y)
-                for(int z = -180; z <= 180; ++z)
-                    Instantiate(cube, new Vector3(0, 0, -6), Quaternion.Euler(x, y, z));
+        for (int x = -20; x <= 20; x += 10)
+        {
+            for (int y = -180; y <= 180; y += 40)
+            {
+                GameObject obj = Instantiate(pivot, new Vector3(0, 0, 0), Quaternion.Euler(x , y + me_rotate, 0));
+                obj.transform.parent = this.transform;
+                spawnerList[y_count] = obj;
+                //Debug.Log(y_count);
+                y_count++;
+            }
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
     }
 }
