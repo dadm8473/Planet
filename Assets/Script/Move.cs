@@ -15,9 +15,9 @@ public class Move : MonoBehaviour
     void Update()
     {
         float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
 
-        transform.Rotate(v * 50 * Time.deltaTime, h * 50 * Time.deltaTime, 0f);
+        transform.Rotate(0f, h * 80 * Time.deltaTime, 0f);
+        transform.Rotate(80 * Time.deltaTime, 0f, 0f);
 
         maincamera.transform.rotation = transform.rotation;
     }

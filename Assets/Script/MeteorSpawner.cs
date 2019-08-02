@@ -7,6 +7,8 @@ public class MeteorSpawner : MonoBehaviour
     public GameObject pivot;
     public GameObject[] spawnerList = new GameObject[50];
 
+    public GameObject meteorPrefab;
+
     int y_count = 0;
     public float me_rotate = 0;
 
@@ -24,9 +26,27 @@ public class MeteorSpawner : MonoBehaviour
                 y_count++;
             }
         }
-    }
-    private void Update()
-    {
 
+        StartCoroutine(MeteorAttack());
+    }
+
+    void Update()
+    {
+        
+    }
+
+    IEnumerator MeteorAttack()
+    {
+        while (true)
+        {
+            Transform attackObj = spawnerList[Random.Range(0, 50)].transform.GetChild(0);
+
+            GameObject meteor = Instantiate(meteorPrefab);
+            meteor.transform.position = attackObj.position;
+
+            yield return new WaitForSeconds(0.1f);
+
+            //yield return null;
+        }
     }
 }
