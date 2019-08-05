@@ -6,14 +6,23 @@ public class Meteor : MonoBehaviour
 {
     Vector3 centerPos;
     LineRenderer lineRenderer;
-    public GameObject cyliRender;
+    //public GameObject cyliRender;
 
     public GameObject explosion;
+    public GameObject cube;
 
     void Start()
     {
         //lineRenderer = GetComponent<LineRenderer>();
         centerPos = new Vector3(0, 0, 0);
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, centerPos - transform.position, out hit, LayerMask.GetMask("Planet")))
+        {
+            GameObject cube_ = Instantiate(cube);
+            cube_.transform.position = hit.point;
+            cube_.transform.rotation = Quaternion.FromToRotation(transform.forward, hit.normal);
+        }
     }
 
     void Update()
@@ -49,13 +58,14 @@ public class Meteor : MonoBehaviour
             //        tex.SetPixel((int)pixelUV.x, (int)pixelUV.y, Color.black);
             //    }
             //}
-            
+
             //hit.transform.GetComponent<MeshRenderer>().material.color = Color.red;
+            
             Debug.DrawRay(transform.position, centerPos - transform.position, Color.red, 0.1f);
         }
 
         transform.position = Vector3.Lerp(transform.position, centerPos, 0.01f);
-        cyliRender.transform.localScale = new Vector3(1, 7, 1);
+        //cyliRender.transform.localScale = new Vector3(1, 7, 1);
         transform.LookAt(centerPos);
         //lineRenderer.SetPosition(0, transform.position);
         //lineRenderer.SetPosition(1, centerPos - transform.position);
