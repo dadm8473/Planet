@@ -44,7 +44,7 @@ public class MeteorSpawner : MonoBehaviour
             GameObject meteor = Instantiate(meteorPrefab);
             meteor.transform.position = attackObj.position;
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1);
 
             //yield return null;
         }
