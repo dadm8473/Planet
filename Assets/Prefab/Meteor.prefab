@@ -49,7 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 4207354201378597465, guid: 87ada497e6ab18d498201625d878469f,
     type: 3}
-  cube: {fileID: 100000, guid: 643a7fed6ade336458e1af245fc176d2, type: 3}
+  particle: {fileID: 8653742856126597346, guid: d1162cbda145f1b469aa5b08073bf997,
+    type: 3}
+  cube: {fileID: 1270783103218039878, guid: c495f2cdef2fd2f449488197bea11d3a, type: 3}
 --- !u!135 &10001130456768604
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -189,7 +191,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ba67e6036fc0e6e458a752d8c702039c, type: 2}
+  - {fileID: 2100000, guid: 3eb8cc4a6fb112f418bc9ccff02be21f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,7 +211,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.25
+  m_Time: 0.7
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 2

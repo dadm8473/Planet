@@ -9,7 +9,9 @@ public class Meteor : MonoBehaviour
     //public GameObject cyliRender;
 
     public GameObject explosion;
+    public GameObject particle;
     public GameObject cube;
+    GameObject cube_;
 
     void Start()
     {
@@ -19,7 +21,7 @@ public class Meteor : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, centerPos - transform.position, out hit, LayerMask.GetMask("Planet")))
         {
-            GameObject cube_ = Instantiate(cube);
+            cube_ = Instantiate(cube);
             cube_.transform.position = hit.point;
             cube_.transform.rotation = Quaternion.FromToRotation(transform.forward, hit.normal);
         }
@@ -77,6 +79,16 @@ public class Meteor : MonoBehaviour
         {
             GameObject obj = Instantiate(explosion);
             obj.transform.position = transform.position;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, centerPos - transform.position, out hit, LayerMask.GetMask("Planet")))
+            {
+                GameObject obj2 = Instantiate(particle);
+                obj2.transform.position = transform.position;
+                obj2.transform.rotation = Quaternion.FromToRotation(transform.forward, hit.normal);
+            }
+
+            Destroy(cube_);
             Destroy(gameObject);
         }
     }
