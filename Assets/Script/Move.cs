@@ -16,9 +16,11 @@ public class Move : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
 
-        transform.Rotate(0f, h * 80 * Time.deltaTime, 0f);
+        //transform.Rotate(0f, h * 80 * Time.deltaTime, 0f);
+        transform.Rotate(0f, h * 200 * Time.deltaTime, 0f);
         transform.Rotate(80 * Time.deltaTime, 0f, 0f);
 
-        maincamera.transform.rotation = transform.rotation;
+        //maincamera.transform.rotation = transform.rotation;
+        maincamera.transform.rotation = Quaternion.Lerp(maincamera.transform.rotation, transform.rotation, Time.deltaTime * 9);
     }
 }
