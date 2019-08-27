@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Planet
   - Fire
+  - Meteor
   layers:
   - Default
   - TransparentFX

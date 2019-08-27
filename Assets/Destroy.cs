@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Destroy : MonoBehaviour
 {
+    SphereCollider sc;
+
     void Start()
     {
-        Destroy(gameObject, 1.5f);
+        sc = this.GetComponent<SphereCollider>();
+        Destroy(gameObject, 0.8f);
+        Destroy(sc, 0.1f);
     }
 }

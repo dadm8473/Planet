@@ -66,7 +66,7 @@ public class Meteor : MonoBehaviour
             Debug.DrawRay(transform.position, centerPos - transform.position, Color.red, 0.1f);
         }
 
-        transform.position = Vector3.Lerp(transform.position, centerPos, 0.01f);
+        transform.position = Vector3.Lerp(transform.position, centerPos, 0.015f);
         //cyliRender.transform.localScale = new Vector3(1, 7, 1);
         transform.LookAt(centerPos);
         //lineRenderer.SetPosition(0, transform.position);
