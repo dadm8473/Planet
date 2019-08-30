@@ -13,5 +13,6 @@ public class GameUI : MonoBehaviour
     public void Exit_Button()
     {
         SceneManager.LoadScene(0);
+
     }
 }
